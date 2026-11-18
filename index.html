@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Des randos faites pour les enfants en Haute-Loire et dans la Loire, à la journée ou avec une nuit au camping. Bêta Android.">
+<meta property="og:title" content="Randokidz · La rando en famille, jusqu’à la belle étoile">
+<meta property="og:description" content="113 balades pour les enfants en Haute-Loire et dans la Loire, à la journée ou avec une nuit au camping. Bêta Android gratuite.">
+<meta property="og:image" content="https://randokidz.github.io/apercu.png">
+<meta property="og:url" content="https://randokidz.github.io/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0B1020">
+<link rel="icon" href="icon.png">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+<title>Bienvenue sur Randokidz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Une colonne façon téléphone : un tour de l'app, bloc par bloc. Thème Nuit (marque) par défaut, Jour en clair. */
+:root{
+  --bg:#0B1020; --surface:#151B2E; --raised:#1F2740; --ink:#F5F7FB; --muted:#A3ABC2; --line:#2A3350;
+  --brand:#8C7FFF; --nature:#3DD68C;
+  --propose:#5AB8FF; --teste:#3DD68C; --signale:#FF8347;
+  --ring:#FFFFFF; --sky:#0B1020;
+  --grad:linear-gradient(120deg,#6B5BFF,#FF4DA6 55%,#FF8347);
+  --display:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --text:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#F5F7FB; --surface:#FFFFFF; --raised:#E8EDF4; --ink:#0B1020; --muted:#4A5163; --line:#D5DBE6;
+    --brand:#5B4BEB; --nature:#0F7A4B;
+    --propose:#1C6FC9; --teste:#0F7A4B; --signale:#B4470F;
+    --ring:#0B1020; --sky:#F5F7FB;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#F5F7FB; --surface:#FFFFFF; --raised:#E8EDF4; --ink:#0B1020; --muted:#4A5163; --line:#D5DBE6;
+  --brand:#5B4BEB; --nature:#0F7A4B;
+  --propose:#1C6FC9; --teste:#0F7A4B; --signale:#B4470F;
+  --ring:#0B1020; --sky:#F5F7FB;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--text);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:620px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:24px;font-weight:800}
+h3{font-size:17px;font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+.eyebrow{font:700 12px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--brand)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* en-tête */
+.hero{display:flex;flex-direction:column;gap:14px;padding-top:8px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:52px;height:52px;flex:none}
+.brand span{font:800 26px/1 var(--display);letter-spacing:-.02em}
+.hero h1{font-size:clamp(30px,8vw,42px);font-weight:800;line-height:1.08}
+.hero p{font-size:17px;max-width:34em}
+.tag{display:inline-flex;align-self:flex-start;gap:8px;align-items:center;font-size:13px;font-weight:600;background:var(--raised);border-radius:999px;padding:6px 12px}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--nature)}
+
+/* chiffres */
+.figures{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.fig b{font:800 28px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.fig span{font-size:13.5px;color:var(--muted)}
+@media (max-width:440px){.figures{grid-template-columns:1fr 1fr}.fig:first-child{grid-column:1/-1}}
+
+/* blocs */
+.block{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.star{background:linear-gradient(var(--surface),var(--surface)) padding-box,var(--grad) border-box;border:2px solid transparent}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{background:var(--raised);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.step b{font-family:var(--display);font-size:15px}
+.step span{font-size:14px;color:var(--muted)}
+.step .n{font:800 13px/1 var(--display);color:var(--brand)}
+ul.ticks{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+ul.ticks li{padding-left:22px;position:relative}
+ul.ticks li::before{content:"";position:absolute;left:2px;top:.6em;width:9px;height:9px;border-radius:3px;background:var(--brand)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--raised)}
+
+/* maquette du choix de formule */
+.mock{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.mock .q{font-weight:600;font-size:14.5px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opt{border:2px solid var(--line);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.opt.on{border-color:var(--brand);background:var(--raised)}
+.opt b{font-family:var(--display);font-size:14.5px}
+.opt span{font-size:13px;color:var(--muted)}
+.days{display:grid;grid-template-columns:auto 1fr auto;gap:6px 12px;font-size:14px;align-items:baseline}
+.days .d{font:700 12px/1 var(--display);color:var(--brand);text-transform:uppercase;letter-spacing:.08em}
+.days .km{font-variant-numeric:tabular-nums;font-weight:600}
+
+/* statuts */
+.statuts{display:flex;flex-direction:column;gap:8px}
+.st{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:14.5px}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;border-radius:999px;padding:4px 10px;border:1.5px solid currentColor;white-space:nowrap}
+.badge svg{width:14px;height:14px}
+.b-propose{color:var(--propose)} .b-teste{color:var(--teste)} .b-signale{color:var(--signale)}
+
+/* installation */
+.install{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:520px){.install{grid-template-columns:1fr}}
+.inst{background:var(--raised);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+ol.how{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.btn{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:12px 18px;border-radius:14px;background:var(--grad);color:#0B1020;font:800 16px var(--display);text-decoration:none;text-align:center}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.meta{font-size:13.5px;color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+.hero .btn{align-self:flex-start}
+.qr-zone{display:none;gap:16px;align-items:center}
+.qr{width:128px;flex:none;background:#fff;border-radius:12px;padding:6px}
+.qr svg{display:block;width:100%;height:auto}
+@media (min-width:760px) and (hover:hover){.qr-zone{display:flex}}
+details{font-size:13.5px;color:var(--muted)}
+summary{cursor:pointer;min-height:44px;display:flex;align-items:center}
+code{display:block;word-break:break-all;font-size:12.5px;background:var(--raised);border-radius:10px;padding:10px;color:var(--ink)}
+.foot{font-size:13px;color:var(--muted);text-align:center}
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="brand">
+      <!-- Logo : la lune au-dessus de la montagne, dans l'anneau. -->
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <defs><linearGradient id="gm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9B5BFF"/><stop offset=".5" stop-color="#FF4DA6"/><stop offset="1" stop-color="#FF8347"/></linearGradient></defs>
+        <circle cx="50" cy="50" r="28.5" fill="none" stroke="var(--ring)" stroke-width="10"/>
+        <circle cx="61.5" cy="35.5" r="5.4" fill="var(--ring)"/>
+        <path d="M30 67.3 46.3 41.5 55 54.5 61.4 45.6 71.5 67.3Z" fill="url(#gm)"/>
+      </svg>
+      <span>Randokidz</span>
+    </div>
+    <span class="tag"><i></i>Bêta privée · tu fais partie des testeurs</span>
+    <h1>La rando en famille,<br><span class="grad">jusqu’à la belle étoile.</span></h1>
+    <a class="btn" href="https://github.com/Randokidz/randokidz.github.io/releases/download/v0.2.1/randokidz-0.2.1.apk">Télécharger pour Android</a>
+    <p class="muted intro">Des balades faites pour les enfants en Haute-Loire et dans la Loire, à la journée ou avec une nuit sous la tente au camping. Chaque fiche dit la distance, la montée, l’âge conseillé, où dormir et comment ne pas se perdre.</p>
+  </header>
+
+  <div class="figures">
+    <div class="fig"><b>113</b><span>parcours en ligne</span></div>
+    <div class="fig"><b>76</b><span>en Haute-Loire</span></div>
+    <div class="fig"><b>37</b><span>dans la Loire</span></div>
+  </div>
+
+  <section class="block" aria-labelledby="t-how">
+    <p class="eyebrow">De la carte au sentier</p>
+    <h2 id="t-how">Comment ça marche</h2>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><b>Tu choisis sur la carte</b><span>Filtre selon l’âge des enfants, boucle ou aller simple, avec ou sans nuit, baignade, département.</span></div>
+      <div class="step"><span class="n">2</span><b>Tu lis la fiche</b><span>Le déroulé, le camping, les règles sur place, ce qui va plaire aux enfants, les points de vigilance.</span></div>
+      <div class="step"><span class="n">3</span><b>Tu télécharges avant de partir</b><span>Touche « Télécharger pour la sortie » : la fiche, le tracé et la carte marchent ensuite sans réseau.</span></div>
+      <div class="step"><span class="n">4</span><b>Tu suis le chemin</b><span>« Me guider sur le chemin » montre où tu es, l’étape en cours, et prévient si tu t’écartes du tracé.</span></div>
+    </div>
+    <p class="muted">Dans chaque fiche, « À raconter en chemin » donne une histoire du coin à raconter aux enfants pendant la marche. Quand c’est une légende, c’est écrit.</p>
+  </section>
+
+  <section class="block star" aria-labelledby="t-formule">
+    <p class="eyebrow">Nouveau</p>
+    <h2 id="t-formule">À la journée ou avec une nuit au camping</h2>
+    <p>Sur certains parcours, tu choisis ta façon de le faire. La distance, la montée, l’âge conseillé et le déroulé changent avec ton choix : arriver au camping, ce n’est pas toujours la même longueur que finir à la voiture.</p>
+    <div class="mock" aria-label="Exemple : Gorges de la Loire, de Bas-Monistrol à Aurec">
+      <p class="q">Comment tu veux le faire ?</p>
+      <div class="opts">
+        <div class="opt"><b>À la journée</b><span>18,2 km · dès 10 ans</span></div>
+        <div class="opt on"><b>2 jours, 1 nuit au camping</b><span>~21,6 km · dès 12 ans</span></div>
+      </div>
+      <div class="days">
+        <span class="d">Jour 1</span><span>Gare de Bas-Monistrol → camping d’Aurec</span><span class="km">~19,9 km</span>
+        <span class="d">Jour 2</span><span>Camping → gare d’Aurec</span><span class="km">~1,7 km</span>
+      </div>
+    </div>
+    <p class="muted">Exemple réel : les gorges de la Loire, de gare à gare sur le GR 302, avec le TER pour rejoindre le départ.</p>
+  </section>
+
+  <section class="block" aria-labelledby="t-statut">
+    <p class="eyebrow">C’est là que tu entres en jeu</p>
+    <h2 id="t-statut">Les parcours attendent leurs premières familles</h2>
+    <p>Les fiches sont construites à partir des sources officielles : départements, offices de tourisme, fédération de randonnée. Mais personne ne les a encore validées avec des enfants. Ton avis fait passer un parcours de « proposé » à « testé ».</p>
+    <div class="statuts">
+      <div class="st"><span class="badge b-propose"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2"/></svg>Proposé</span><span>Construit à partir des sources, pas encore testé par une famille.</span></div>
+      <div class="st"><span class="badge b-teste"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Testé</span><span>Des familles l’ont fait et ont laissé un avis.</span></div>
+      <div class="st"><span class="badge b-signale"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5 14 13.5H2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 7v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Signalé</span><span>Quelqu’un a vu un problème sur place : passerelle fermée, chemin effondré…</span></div>
+    </div>
+    <ul class="ticks">
+      <li><b>Laisser un avis</b> : quelques étoiles, l’âge des enfants et un mot. Pas de compte, pas d’e-mail.</li>
+      <li><b>Signaler un problème</b> : le bandeau s’affiche tout de suite pour les familles suivantes.</li>
+      <li>Pas de réseau sur le sentier ? Écris quand même : ça part tout seul au retour du réseau.</li>
+    </ul>
+  </section>
+
+  <section class="block" aria-labelledby="t-choix">
+    <p class="eyebrow">Notre parti pris</p>
+    <h2 id="t-choix">Fiable avant tout</h2>
+    <ul class="ticks">
+      <li>Quand une distance n’est pas mesurée de façon sûre, elle s’affiche avec « ~ ». Jamais un chiffre au hasard présenté comme exact.</li>
+      <li>Les règles de feu et de bivouac viennent uniquement de sources officielles. Dans la Loire, le bivouac est interdit dans les espaces sensibles : l’app ne le propose pas.</li>
+      <li>Chaque fiche cite ses sources, avec un lien pour aller les lire.</li>
+      <li>Rien sur tes enfants : seulement une tranche d’âge (3-5, 6-8, 9-12, 13+). Pas de photo d’enfant reconnaissable. Tu peux tout supprimer d’un geste.</li>
+    </ul>
+    <div class="chips" aria-label="Les filtres de la carte">
+      <span class="chip">3-5 ans</span><span class="chip">6-8 ans</span><span class="chip">9-12 ans</span><span class="chip">13 ans et +</span><span class="chip">Boucle</span><span class="chip">Avec nuit</span><span class="chip">À la journée</span><span class="chip">Baignade</span>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="t-install">
+    <p class="eyebrow">Gratuit, sans pub, sans compte</p>
+    <h2 id="t-install">L’installer</h2>
+    <div class="install">
+      <div class="inst">
+        <h3>Android</h3>
+        <ol class="how muted">
+          <li>Ouvre le lien sur ton téléphone et télécharge le fichier.</li>
+          <li>Ouvre-le. Si Android demande, autorise l’installation depuis ton navigateur.</li>
+          <li>Si une alerte « application inconnue » s’affiche, choisis d’installer quand même : l’app n’est pas encore sur le Play Store.</li>
+        </ol>
+      </div>
+      <div class="inst">
+        <h3>iPhone</h3>
+        <p class="muted">Pas encore. La bêta commence sur Android ; l’iPhone viendra ensuite.</p>
+      </div>
+    </div>
+    <a class="btn" href="https://github.com/Randokidz/randokidz.github.io/releases/download/v0.2.1/randokidz-0.2.1.apk">Télécharger Randokidz pour Android</a>
+    <p class="meta">Version 0.2.1 · 57 Mo · mise à jour le 18 novembre 2026</p>
+    <div class="qr-zone"><div class="qr"><svg role="img" aria-label="QR code de la page randokidz.github.io" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 31" shape-rendering="crispEdges"><path fill="#FFFFFF" d="M0 0h31v31H0z"/><path stroke="#0B1020" d="M1 1.5h7m1 0h3m11 0h7M1 2.5h1m5 0h1m3 0h1m1 0h1m3 0h1m2 0h2m1 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m2 0h2m1 0h2m1 0h4m3 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h3m1 0h2m2 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m1 0h1m1 0h1m3 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m1 0h1m1 0h6m1 0h4m1 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 8.5h2m4 0h1m2 0h1m2 0h1M1 9.5h1m3 0h1m1 0h5m2 0h7m1 0h5m2 0h1M1 10.5h1m2 0h1m3 0h3m1 0h2m4 0h2m3 0h7M1 11.5h1m1 0h1m2 0h4m4 0h3m2 0h1m1 0h1m2 0h1m4 0h1M2 12.5h1m1 0h1m1 0h1m6 0h2m1 0h3m7 0h1m1 0h2M3 13.5h1m2 0h7m1 0h1m3 0h1m2 0h2m5 0h1M1 14.5h1m1 0h2m4 0h2m2 0h3m1 0h3m3 0h7M2 15.5h3m1 0h2m2 0h1m1 0h1m4 0h2m2 0h2m1 0h4m1 0h1M8 16.5h1m6 0h1m2 0h4m3 0h1m2 0h2M4 17.5h5m1 0h1m1 0h7m1 0h3m5 0h1M1 18.5h2m2 0h1m2 0h1m1 0h2m6 0h2m3 0h4m1 0h2M3 19.5h1m1 0h1m1 0h1m1 0h1m1 0h6m2 0h1m2 0h1m4 0h1m1 0h1M3 20.5h2m1 0h1m1 0h3m3 0h1m1 0h6m1 0h2m3 0h2M1 21.5h2m1 0h1m1 0h2m1 0h1m1 0h4m3 0h2m1 0h6m2 0h1M9 22.5h2m1 0h4m1 0h5m3 0h1m3 0h1M1 23.5h7m1 0h1m1 0h1m1 0h1m3 0h1m1 0h3m1 0h1m1 0h3m1 0h1M1 24.5h1m5 0h1m3 0h1m1 0h1m1 0h1m2 0h2m1 0h1m3 0h1m2 0h2M1 25.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h4m1 0h8m1 0h2M1 26.5h1m1 0h3m1 0h1m2 0h1m2 0h1m4 0h3m1 0h1m5 0h1M1 27.5h1m1 0h3m1 0h1m2 0h7m2 0h1m1 0h2m3 0h4M1 28.5h1m5 0h1m2 0h1m1 0h1m3 0h2m2 0h2m1 0h4m1 0h2M1 29.5h7m1 0h3m9 0h1m3 0h1m2 0h1"/></svg>
+</div><p class="muted">Tu es sur un ordinateur ? Scanne ce code avec ton téléphone Android pour ouvrir cette page.</p></div>
+    <details><summary>Vérifier le fichier (empreinte SHA-256)</summary><code>ffa955c78e788359c89b7c7dcb2180fac13ff886ab895de54403001a54c0f7bb</code></details>
+    <p class="muted">Les mises à jour arrivent toutes seules : quand le bandeau « Nouvelle version prête » apparaît, touche « Redémarrer ».</p>
+  </section>
+
+  <section class="block" aria-labelledby="t-retours">
+    <h2 id="t-retours">On compte sur toi</h2>
+    <p>C’est une bêta : il y aura des couacs. Une distance qui ne colle pas ? Un chemin introuvable ? Un camping fermé ? Dis-le dans le groupe, avec <b>le nom du parcours et l’endroit où ça coince</b>. Et si tu pars en balade avec l’app, laisse un avis au retour : c’est ce qui fait vivre les fiches.</p>
+  </section>
+
+  <p class="foot">Randokidz · La rando en famille, jusqu’à la belle étoile.<br>Cartes et tracés : © contributeurs OpenStreetMap (ODbL).</p>
+</div>
+
+</html>
